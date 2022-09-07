@@ -1,3 +1,3 @@
 #!/usr/bin/pyton3
 
-def uppercse
+def uppercase(str):
