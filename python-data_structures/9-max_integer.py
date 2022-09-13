@@ -6,4 +6,6 @@ def max_integer(my_list=[]):
     for i in my_list:
         if i > currentBigger:
             currentBigger = i
+    if currentBigger == 0:
+        return -1
     return currentBigger
