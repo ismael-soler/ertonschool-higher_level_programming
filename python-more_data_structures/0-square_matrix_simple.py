@@ -8,3 +8,4 @@ def square_matrix_simple(matrix=[]):
         squareNum = list(map(lambda x: x*x, matrix[i]))
         newMatrix.append(squareNum)
     return newMatrix
+
