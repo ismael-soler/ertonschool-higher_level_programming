@@ -5,19 +5,22 @@ def roman_to_int(roman_string):
 
     i = 0
     totalSum = 0
-    for i in range(0, len(roman_string)):
+    for i in range(0, len(roman_string) - 1):
+
         # Get value of the first symbol
         firstSymbol = value(roman_string[i])
         if (i + 1 < len(roman_string)):
+
             # Get value of the second symbol
             secondSymbol = value(roman_string[i + 1])
             # Compare both symbols
             if firstSymbol >= secondSymbol:
-                totalSum += firstSymbol
+                totalSum = totalSum + firstSymbol
             else:
-                totalSum += secondSymbol - firstSymbol
+                totalSum = totalSum + secondSymbol - firstSymbol
+                i = i + 1
         else:
-            totalSum += firstSymbol
+            totalSum = totalSum + firstSymbol
 
     return totalSum
 
