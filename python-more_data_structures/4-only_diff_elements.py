@@ -1,1 +1,10 @@
 #!/usr/bin/python3
+from hashlib import new
+
+
+def only_diff_elements(set_1, set_2):
+    if set_1 is None or set_2  is None:
+        return
+
+    newSet = set_1.symmetric_difference(set_2)
+    return newSet
