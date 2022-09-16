@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def safe_print_integer(value):
     if value is None:
-        return
+        return False
     condition = False
 
     try:
@@ -10,6 +10,5 @@ def safe_print_integer(value):
 
     except:
         condition = False
-
 
     return condition
