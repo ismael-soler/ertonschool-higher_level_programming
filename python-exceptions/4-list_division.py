@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-from decimal import DivisionByZero
-
-
 def list_division(my_list_1, my_list_2, list_length):
     if my_list_1 is None or my_list_2 is None or list_length is None:
         return
