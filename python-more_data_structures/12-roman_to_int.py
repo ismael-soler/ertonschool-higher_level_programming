@@ -2,6 +2,8 @@
 def roman_to_int(roman_string):
     if roman_string and type(roman_string) is not str:
         return 0
+    if roman_string is None:
+        return 0
 
     i = 0
     totalSum = 0
