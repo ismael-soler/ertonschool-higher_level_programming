@@ -24,4 +24,6 @@ TypeError: a must be an integer
 >>> add_integer(0.123123213, 0.7345236)
 0
 
->>> add_integer('inf')
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+TypeError:
