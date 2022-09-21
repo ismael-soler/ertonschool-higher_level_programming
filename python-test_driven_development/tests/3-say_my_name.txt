@@ -1,0 +1,12 @@
+IMPORT
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+TESTS
+>>> say_my_name("Mr.", "White")
+My name is Mr. White
+
+>>> say_my_name("Mr.")
+My name is Mr. 
+
+>>> say_my_name("", "White")
+My name is  White
