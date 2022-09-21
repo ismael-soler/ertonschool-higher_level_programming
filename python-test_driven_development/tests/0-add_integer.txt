@@ -28,6 +28,6 @@ TypeError: a must be an integer
 Traceback (most recent call last):
 OverflowError: cannot convert float infinity to integer
 
->>> add_integer(float(NaN))
+>>> add_integer(1000e1000, 1000e1000)
 Traceback (most recent call last):
-NameError: name 'NaN' is not defined
+OverflowError: cannot convert float infinity to integer
