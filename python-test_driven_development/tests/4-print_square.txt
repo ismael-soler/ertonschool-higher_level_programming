@@ -1,0 +1,23 @@
+IMPORT
+>>> print_square = __import__('4-print_square').print_square
+
+TESTS
+>>> print_square(2)
+##
+##
+
+>>> print_square(-5)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+
+>>> print_square(0.0005)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> print_square(float('inf'))
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> print_square("Toti")
+Traceback (most recent call last):
+TypeError: size must be an integer
