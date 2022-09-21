@@ -13,7 +13,6 @@ def text_indentation(text):
             if text[i] == " ":
                 continue
             punctuationWasFound = False
-            continue
         print(text[i], end="")
         if text[i] == "." or text[i] == "?" or text[i] == ":":
             punctuationWasFound = True
