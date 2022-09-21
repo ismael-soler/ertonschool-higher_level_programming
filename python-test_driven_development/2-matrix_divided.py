@@ -6,8 +6,9 @@ def matrix_divided(matrix, div):
     """ divides all elements of a matrix """
 
     checkMatrixConditions(matrix, div)
-    #return list(map(lambda x: round(x / div, 2), list(map(lambda x: x, matrix))))
-    return [list(map(lambda x: round(x / div, 2), l)) for l in matrix]
+    # return list(map(lambda l: list(map(lambda x: x / div, l)), matrix))
+    return [list(map(lambda x: round(x / div, 2), listInMatrix))
+            for listInMatrix in matrix]
 
 
 def checkMatrixConditions(matrix, div):
@@ -15,7 +16,8 @@ def checkMatrixConditions(matrix, div):
 
     # Check if matrix is a list
     if type(matrix) != list:
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        raise TypeError("matrix must be a matrix (list of lists) of "
+                        "integers/floats")
     # Check if every member of the list is a list, and compares lengths
     prevLen = len(matrix[0])
     for listInMatrix in matrix:
