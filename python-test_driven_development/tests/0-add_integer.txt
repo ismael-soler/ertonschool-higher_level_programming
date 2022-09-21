@@ -13,7 +13,7 @@ TESTS
 Traceback (most recent call last):
 TypeError: a must be an integer
 
->>> add_integer(4, "tuvieja")
+>>> add_integer(4, "a")
 Traceback (most recent call last):
 TypeError: b must be an integer
 
@@ -27,4 +27,8 @@ TypeError: a must be an integer
 >>> add_integer(float('inf'))
 Traceback (most recent call last):
 OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(3+5j, 3+5j)
+Traceback (most recent call last):
+TypeError: a must be an integer
 
