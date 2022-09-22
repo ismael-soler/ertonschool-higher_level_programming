@@ -58,7 +58,7 @@ class Rectangle:
         newString = ""
         if self.width != 0:
             for i in range(self.height):
-                newString += self.print_symbol * self.width
+                newString += str(self.print_symbol) * self.width
                 if i != self.height - 1:
                     newString += "\n"
 
