@@ -37,7 +37,11 @@ class TestMaxInteger(unittest.TestCase):
         """Test a list"""
         result = max_integer([1])
         self.assertEqual(result, 1)
-    def test_oneElementInTheList(self):
+
+    def test_noElementsInTheList(self):
         """Test a list"""
         result = max_integer([])
         self.assertEqual(result, None)
+
+if __name__ == '__main__':
+    unittest.main()
