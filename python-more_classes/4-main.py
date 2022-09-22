@@ -12,6 +12,7 @@ print(hex(id(my_rectangle)))
 print("--")
 
 # create new instance based on representation
+print("sasdall")
 new_rectangle = eval(repr(my_rectangle))
 print(str(new_rectangle))
 print("--")
