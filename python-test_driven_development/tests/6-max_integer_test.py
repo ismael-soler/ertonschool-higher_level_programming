@@ -8,37 +8,37 @@ max_integer = __import__('6-max_integer').max_integer
 class TestMaxInteger(unittest.TestCase):
     """Unittest class for tests"""
 
-    def maxAtTheEnd(self):
+    def test_maxAtTheEnd(self):
         """Test a list"""
         result = max_integer([1, 2, 3, 4])
         self.assertEqual(result, 4)
 
-    def maxAtTheBeginning(self):
+    def test_maxAtTheBeginning(self):
         """Test a list"""
         result = max_integer([4, 2, 3, 1])
         self.assertEqual(result, 4)
 
-    def maxAtTheMiddle(self):
+    def test_maxAtTheMiddle(self):
         """Test a list"""
         result = max_integer([1, 2, 4, 1])
         self.assertEqual(result, 4)
 
-    def oneNegativeNumber(self):
+    def test_oneNegativeNumber(self):
         """Test a list"""
         result = max_integer([1, -8, 4, 1])
         self.assertEqual(result, 4)
 
-    def onlyNegativeNumber(self):
+    def test_onlyNegativeNumber(self):
         """Test a list"""
         result = max_integer([-11, -8, -24, -1])
         self.assertEqual(result, -1)
 
-    def oneElementInTheList(self):
+    def test_oneElementInTheList(self):
         """Test a list"""
         result = max_integer([1])
         self.assertEqual(result, 1)
 
-    def oneElementInTheList(self):
-        """Test a list"""
-        result = max_integer([])
-        self.assertEqual(result, "")
+    # def test_oneElementInTheList(self):
+    #    """Test a list"""
+    #    result = max_integer([])
+    #    self.assertEqual(result, "")
