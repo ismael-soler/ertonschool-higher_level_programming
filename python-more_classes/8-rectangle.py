@@ -2,9 +2,6 @@
 """ Rectangle class """
 
 
-from typing import Type
-
-
 class Rectangle:
     """ defines the rectangle """
 
