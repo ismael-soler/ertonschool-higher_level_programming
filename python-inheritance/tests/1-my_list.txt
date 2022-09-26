@@ -9,6 +9,7 @@ TESTS
 >>> lst.print_sorted()
 [1, 2, 3]
 
+
 >>> lst = MyList()
 >>> lst.append(-3)
 >>> lst.append(-5)
@@ -16,14 +17,24 @@ TESTS
 >>> lst.print_sorted()
 [-5, -4, -3]
 
+
 >>> lst = MyList()
 >>> lst.print_sorted()
 []
+
 
 >>> lst = MyList()
 >>> lst.append(0)
 >>> lst.print_sorted()
 [0]
+
+
+>>> lst = MyList([0, 3, -8])
+>>> lst.print_sorted()
+[-8, 0, 3]
+>>> print(lst)
+[0, 3, -8]
+
 
 >>> lst = MyList()
 >>> lst.append(-100)
@@ -33,9 +44,6 @@ TESTS
 >>> lst.print_sorted()
 [-100, 0, 2, 55]
 
->>> a = MyList([0, 3, -8])
->>> a.print_sorted()
-[-8, 0, 3]
 
 >>> lst = MyList()
 >>> lst.append("Mr.White")
