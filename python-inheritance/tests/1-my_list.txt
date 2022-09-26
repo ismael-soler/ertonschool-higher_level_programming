@@ -29,13 +29,6 @@ TESTS
 [0]
 
 
->>> lst = MyList([0, 3, -8])
->>> lst.print_sorted()
-[-8, 0, 3]
->>> print(lst)
-[0, 3, -8]
-
-
 >>> lst = MyList()
 >>> lst.append(-100)
 >>> lst.append(0)
