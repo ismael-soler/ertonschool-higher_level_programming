@@ -19,3 +19,6 @@ class Square(Rectangle):
     def __str__(self):
         """ prints the dimensions """
         return super().__str__()
+
+    def __str__(self):
+        return ("[Square] {}/{}".format(self.__size, self.__size))
