@@ -2,9 +2,6 @@
 """ New class based on rectangle """
 
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
-
 Rectangle = __import__('9-rectangle').Rectangle
 
 
@@ -20,5 +17,4 @@ class Square(Rectangle):
         return self.__size * self.__size
 
     def __str__(self):
-        """ prints the dimensions """
-        return super().__str__()
+        return ("[Square] {}/{}".format(self.__size, self.__size))
