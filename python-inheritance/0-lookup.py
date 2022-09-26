@@ -4,4 +4,4 @@
 
 def lookup(obj):
     """ looks up """
-    print(dir(obj))
+    return dir(obj)
