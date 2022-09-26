@@ -4,4 +4,4 @@
 
 def inherits_from(obj, a_class):
     """ checks the condition"""
-    return type(obj) is not a_class
+    return type(obj) is a_class
