@@ -36,9 +36,3 @@ TESTS
 >>> lst.append(2)
 >>> lst.print_sorted()
 [-100, 0, 2, 55]
-
-
->>> lst = MyList()
->>> lst.append("Mr.White")
->>> lst.print_sorted()
-['Mr.White']
