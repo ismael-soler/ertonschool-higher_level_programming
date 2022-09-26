@@ -5,9 +5,6 @@
 class MyList(list):
     """ MyList """
 
-    def __init__(self):
-        pass
-
     def print_sorted(self):
         lst = self.copy()
         lst.sort()
