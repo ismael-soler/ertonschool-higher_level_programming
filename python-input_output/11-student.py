@@ -24,6 +24,4 @@ class Student:
 
     def reload_from_json(self, json):
         """ reloads from json """
-        for key, value in json.items():
-            attribute = key
-            self.attribute = value
+        self.__dict__.update(json)
