@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ Write a class Student """
+
+
 class Student:
     """ Class Student """
     def __init__(self, first_name, last_name, age):
