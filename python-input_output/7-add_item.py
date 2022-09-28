@@ -1,16 +1,17 @@
 #!/usr/bin/python3
-""" addas all arguments to Python list """
-import json
+""" add all arguments to Python list """
 import sys
+import os
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-args = sys.argv
+args = sys.argv[1:]
 filename = "add_item.json"
-with open(filename, 'a+', encoding='utf-8') as file:
-    my_list = []
-    args.pop(0)
-    for elements in args:
-        my_list.append(elements)
-        save_to_json_file(my_list, filename)
-        load_from_json_file(filename)
+listObject = []
+
+if os.path.exists(filename):
+    listObject = load_from_json_file(filename)
+
+for element in args:
+    listObject.append(element)
+save_to_json_file(listObject, filename)
