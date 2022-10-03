@@ -97,7 +97,8 @@ class Rectangle(Base):
     def update(self, *args):
         """ update rectangle values """
         argsLen = len(args)
-        self.id = args[0]
+        if argsLen > 0
+            self.id = args[0]
         if argsLen > 1:
             self.__width = args[1]
         if argsLen > 2:
