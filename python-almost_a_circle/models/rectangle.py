@@ -106,7 +106,7 @@ class Rectangle(Base):
             if (le > 3):
                 self.__x = args[3]
             if (le > 4):
-               self.__y = args[4]
+                self.__y = args[4]
         else:
             for key, value in kwargs.items():
                 if (key == "id"):
@@ -119,5 +119,3 @@ class Rectangle(Base):
                     self.__x = value
                 if (key == "y"):
                     self.__y = value
-
-
