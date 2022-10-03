@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" ex 2 """
+""" rectangle """
 
 
 from models.base import Base
 
 
 class Rectangle(Base):
-    """ class Rectangle """
+    """ Rectangle class """
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """ init """
@@ -18,73 +18,79 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """ getter width """
+        """ getter """
         return self.__width
 
     @width.setter
-    def width(self, value):
-        """ setter width """
-        if (type(value) != int):
+    def width(self, width):
+        """ width setter """
+        if type(width) != int:
             raise TypeError("width must be an integer")
-        if (value <= 0):
+        if width <= 0:
             raise ValueError("width must be > 0")
-        self.__width = value
+        self.__width = width
 
     @property
     def height(self):
-        """ getter height """
+        """ getter """
         return self.__height
 
     @height.setter
-    def height(self, value):
+    def height(self, height):
         """ height setter """
-        if (type(value) != int):
+        if type(height) != int:
             raise TypeError("height must be an integer")
-        if (value <= 0):
+        if height <= 0:
             raise ValueError("height must be > 0")
-        self.__height = value
+        self.__height = height
 
     @property
     def x(self):
-        """ x getter """
+        """ getter """
         return self.__x
 
     @x.setter
-    def x(self, value):
+    def x(self, x):
         """ x setter """
-        if (type(value) != int):
+        if type(x) != int:
             raise TypeError("x must be an integer")
-        if (value < 0):
+        if x < 0:
             raise ValueError("x must be >= 0")
-        self.__x = value
+        self.__x = x
 
     @property
     def y(self):
-        """ y getter """
+        """ getter """
         return self.__y
 
     @y.setter
-    def y(self, value):
+    def y(self, y):
         """ y setter """
-        if (type(value) != int):
+        if type(y) != int:
             raise TypeError("y must be an integer")
-        if (value < 0):
+        if y < 0:
             raise ValueError("y must be >= 0")
-        self.__y = value
+        self.__y = y
 
     def area(self):
-        """ area """
+        """ returns area """
         return self.__height * self.__width
 
     def display(self):
-        """ prints in stdout the rectangle instance with #"""
+        """ displays the rectangle """
         for i in range(self.__y):
             print()
-        for i in range(self.__height):
-            print((" " * self.__x) + ("#" * self.__width))
+        for height in range(self.__height):
+            for j in range(self.__x):
+                print(" ", end="")
+            for width in range(self.width):
+                if width == self.__width - 1:
+                    print("#")
+                else:
+                    print("#", end="")
 
     def __str__(self):
-        """ override str """
+        """ str """
         return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} " +
                 f"- {self.__width}/{self.__height}")
 
