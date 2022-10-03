@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ rectangle """
+from ast import arg
 from turtle import width
 from models.base import Base
 
@@ -92,3 +93,16 @@ class Rectangle(Base):
         """ str """
         return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} " +
                 f"- {self.__width}/{self.__height}")
+
+    def update(self, *args):
+        """ update rectangle values """
+        argsLen = len(args)
+        self.id = args[0]
+        if argsLen > 1:
+            self.__width = args[1]
+        if argsLen > 2:
+            self.__height = args[2]
+        if argsLen > 3:
+            self.__x = args[3]
+        if argsLen > 4:
+            self.__y = args[4]
