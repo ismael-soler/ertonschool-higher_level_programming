@@ -25,9 +25,6 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ saves a list of objects to a file in JSON format """
-        if list_objs is None:
-            return
-
         newList = []
         if list_objs is not None:
             for currentObject in list_objs:
