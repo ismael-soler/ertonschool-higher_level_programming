@@ -1,102 +1,65 @@
 #!/usr/bin/python3
-"""
-A module that test differents behaviors
-of the Square class
-"""
+"""Module"""
+
+
 import unittest
-from models.base import Base
-from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestSquare(unittest.TestCase):
-    """
-    A class to test the Square Class
-    """
+class AllTests(unittest.TestCase):
+    def test_0(self):
+        self.s1 = Square(75, 62)
+        self.s1.update()
+        self.assertEqual(self.s1.id, 22)
+        self.s1.update(89)
+        self.assertEqual(self.s1.id, 89)
+        self.s1.update(89, 1)
+        self.assertEqual(self.s1.id, 89)
+        self.assertEqual(self.s1.size, 1)
 
-    def test_getter(self):
-        r1 = Square(5)
-        self.assertEqual(r1.size, 5)
-
-    def test_setter(self):
-        r1 = Square(5)
-        r1.size = 8
-        self.assertEqual(r1.size, 8)
-
-    def test_string(self):
-        r1 = Square(3)
-
+    def test_1(self):
+        self.s2 = Square(1)
+        self.assertEqual(self.s2.id, 23)
+        self.assertEqual(self.s2.size, 1)
+        self.s3 = Square(1, 2)
+        self.assertEqual(self.s3.id, 24)
+        self.s4 = Square(1, 2, 3)
+        self.assertEqual(self.s4.id, 25)
+        self.s4 = Square(1, 2, 3, 4)
+        self.assertEqual(self.s4.id, 4)
         with self.assertRaises(TypeError):
-            r1.size = "Hi"
-
-    def test_negative(self):
-        r1 = Square(6)
-
+            Square("1")
+        with self.assertRaises(TypeError):
+            Square(1, "2")
+        with self.assertRaises(TypeError):
+            Square(1, 2, "3")
         with self.assertRaises(ValueError):
-            r1.size = -5
-
-    def test_zero(self):
-        r1 = Square(6)
-
+            Square(-1)
         with self.assertRaises(ValueError):
-            r1.size = 0
+            Square(1, -2)
+        with self.assertRaises(ValueError):
+            Square(1, 2, -3)
+        with self.assertRaises(ValueError):
+            Square(0)
+        self.s5 = Square(2)
+        self.assertEqual(self.s5.__str__(), '[Square] (26) 0/0 - 2')
+        self.assertEqual(self.s5.to_dictionary(), {
+                         'id': 26, 'size': 2, 'x': 0, 'y': 0})
 
-    def test_decimal(self):
-        r1 = Square(6)
 
-        with self.assertRaises(TypeError):
-            r1.size = 1.5
+class TestCreate(unittest.TestCase):
+    def test_0(self):
+        self.s6 = Square.create(**{'id': 89, 'size': 1})
+        self.assertEqual(self.s6.size, 1)
+        self.assertEqual(self.s6.id, 89)
 
-    def test_tuple(self):
-        r1 = Square(7)
 
-        with self.assertRaises(TypeError):
-            r1.size = (2, 8)
+class TestFileFunctions(unittest.TestCase):
+    def test_0(self):
+        self.s = Square(3)
+        self.assertEqual(self.s.save_to_file(None), '[]')
+        self.assertEqual(Square.load_from_file(), [])
 
-    def test_empty(self):
-        r1 = Square(7)
 
-        with self.assertRaises(TypeError):
-            r1.size = ''
-
-    def test_none(self):
-        r1 = Square(5)
-
-        with self.assertRaises(TypeError):
-            r1.size = None
-
-    def test_list(self):
-        r1 = Square(4)
-
-        with self.assertRaises(TypeError):
-            r1.size = [4, 7]
-
-    def test_dict(self):
-        r1 = Square(5)
-
-        with self.assertRaises(TypeError):
-            r1.size = {"hi": 5, "world": 8}
-
-    def test_width(self):
-        r1 = Square(5)
-        r1.size = 6
-        self.assertEqual(r1.width, 6)
-        self.assertEqual(r1.height, 6)
-
-    def test_to_dictionary(self):
-        Base._Base__nb_objects = 0
-
-        s1 = Square(10, 2, 1, 9)
-        s1_dictionary = s1.to_dictionary()
-        expected = {'id': 9, 'x': 2, 'size': 10, 'y': 1}
-        self.assertEqual(s1_dictionary, expected)
-
-        s1 = Square(1, 0, 0, 9)
-        s1_dictionary = s1.to_dictionary()
-        expected = {'id': 9, 'x': 0, 'size': 1, 'y': 0}
-        self.assertEqual(s1_dictionary, expected)
-
-        s1.update(5, 5, 5, 5)
-        s1_dictionary = s1.to_dictionary()
-        expected = {'id': 5, 'x': 5, 'size': 5, 'y': 5}
-        self.assertEqual(s1_dictionary, expected)
+if __name__ == '__main__':
+    unittest.main()
