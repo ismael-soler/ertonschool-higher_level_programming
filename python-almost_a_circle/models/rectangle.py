@@ -120,13 +120,13 @@ class Rectangle(Base):
                 if (key == "y"):
                     self.__y = value
 
-        def to_dictionary(self):
-            """ returns the dicionary representation"""
-            myDict = {}
+    def to_dictionary(self):
+        """ returns the dicionary representation"""
+        myDict = {}
 
-            myDict["id"] = self.__id
-            myDict["width"] = self.__width
-            myDict["height"] = self.__height
-            myDict["x"] = self.__x
-            myDict["y"] = self.__y
-            return myDict
+        myDict["id"] = self.id
+        myDict["width"] = self.width
+        myDict["height"] = self.height
+        myDict["x"] = self.x
+        myDict["y"] = self.y
+        return myDict
