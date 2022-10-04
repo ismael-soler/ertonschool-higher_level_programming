@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ base """
+from genericpath import exists
 import json
 
 
@@ -59,3 +60,16 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """
+        It creates a list of instances from a json file.
+
+        :param cls: the class that we're calling the method on
+        :return: A list of instances of the class that called the method.
+        """
+        listOfInstances = []
+        filename = cls.__name__ + ".json"
+        if exists(filename):
+            with open(filename, "r", encoding='utf-8') as file:
+                for currentObject in cls.from_json_string(file.read()):
+                    listOfInstances.append(cls.create(**currentObject))
+        return listOfInstances
