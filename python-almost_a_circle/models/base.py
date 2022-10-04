@@ -60,6 +60,12 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """
+        It creates a list of instances from a json file.
+
+        :param cls: the class that we're calling the method on
+        :return: A list of instances of the class that called the method.
+        """
         listOfInstances = []
         filename = cls.__name__ + ".json"
         if exists(filename):
