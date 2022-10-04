@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ base """
-
 import json
 
 
@@ -18,23 +17,15 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """
-        It converts a list of
-        dictionaries to a JSON string
-
-        :param list_dictionaries: a list of dictionaries
-        :return: A JSON string representation of list_dictionaries.
-        """
+        """ It converts a list of dictionaries to a JSON string """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """
-        It takes a list of objects and saves them to a file in JSON format
-
-        """
+        """ It takes a list of objects and saves them to a
+        file in JSON format """
         if list_objs is None:
             return
 
