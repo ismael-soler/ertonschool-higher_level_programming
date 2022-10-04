@@ -45,3 +45,12 @@ class Square(Rectangle):
                 if (key == "y"):
                     self.y = value
 
+    def to_dictionary(self):
+        """ returns the dicionary representation"""
+        myDict = {}
+
+        myDict["id"] = self.id
+        myDict["size"] = self.size
+        myDict["x"] = self.x
+        myDict["y"] = self.y
+        return myDict
