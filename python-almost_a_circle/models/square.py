@@ -5,6 +5,7 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """ Square class"""
+
     def __init__(self, size, x=0, y=0, id=None):
         """ init """
         super().__init__(size, size, x, y, id)
@@ -24,7 +25,10 @@ class Square(Rectangle):
         self.height = size
 
     def update(self, *args, **kwargs):
-        """ update """
+        """
+        If there are arguments,
+        then assign them to the appropriate attributes.
+        """
         le = len(args)
         if (le > 0):
             self.id = args[0]
@@ -46,7 +50,9 @@ class Square(Rectangle):
                     self.y = value
 
     def to_dictionary(self):
-        """ returns the dicionary representation"""
+        """
+        It creates a dictionary with the attributes of the class
+        """
         myDict = {}
 
         myDict["id"] = self.id

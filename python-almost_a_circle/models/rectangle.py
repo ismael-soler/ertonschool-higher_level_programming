@@ -51,7 +51,6 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, x):
-        """ x setter """
         if type(x) != int:
             raise TypeError("x must be an integer")
         if x < 0:
@@ -60,7 +59,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """ getter """
+        """ It returns the value of the private variable y. """
         return self.__y
 
     @y.setter
@@ -77,7 +76,11 @@ class Rectangle(Base):
         return self.__height * self.__width
 
     def display(self):
-        """ displays the rectangle """
+        """
+        The function prints a rectangle of the specified
+        height and width, with the specified x and y
+        coordinates
+        """
         for i in range(self.__y):
             print()
         for height in range(self.__height):
@@ -95,7 +98,10 @@ class Rectangle(Base):
                 f"- {self.__width}/{self.__height}")
 
     def update(self, *args, **kwargs):
-        """ update function """
+        """
+        If there are arguments,
+        then assign them to the appropriate attributes.
+        """
         le = len(args)
         if (le > 0):
             self.id = args[0]
@@ -121,7 +127,9 @@ class Rectangle(Base):
                     self.__y = value
 
     def to_dictionary(self):
-        """ returns the dicionary representation"""
+        """
+        It creates a dictionary with the attributes of the class
+        """
         myDict = {}
 
         myDict["id"] = self.id
