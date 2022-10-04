@@ -45,6 +45,10 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """
+        Create a dummy instance of the class,
+        update it with the dictionary, and return it.
+        """
         if cls.__name__ == "Square":
             dummy = cls(1)
         else:
@@ -52,3 +56,6 @@ class Base:
 
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
