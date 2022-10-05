@@ -3,6 +3,7 @@
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
+from io import StringIO
 
 
 class RectangleTest(unittest.TestCase):
@@ -79,6 +80,10 @@ class RectangleTest(unittest.TestCase):
         Base._Base__nb_objects = 0
         r1 = Rectangle(1, 2)
         self.assertEqual(r1.__str__(), "[Rectangle] (1) 0/0 - 1/2")
+
+    def test_Display(self):
+        r1 = Rectangle(2, 1, 0, 0)
+        self.assertEqual(r1.display(), None)
 
 
 if __name__ == '__main__':
