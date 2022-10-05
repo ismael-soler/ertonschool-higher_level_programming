@@ -73,7 +73,8 @@ class RectangleTest(unittest.TestCase):
 
     def test_str(self):
         """
-        It tests that the __str__ method of the Rectangle class returns the correct string.
+        It tests that the __str__ method of the Rectangle class returns
+        the correct string.
         """
         Base._Base__nb_objects = 0
         r1 = Rectangle(1, 2)
