@@ -108,16 +108,30 @@ class RectangleTest(unittest.TestCase):
 
     def test_ToDictionary(self):
         """
-        tests the class method to_dictionary
+        It test the class method to_dictionary
         """
         r1 = Rectangle(1, 1, 1, 1, 1)
         self.assertEqual(r1.to_dictionary(),
-                        {'id': 1, 'width': 1, 'height': 1, 'x': 1, 'y': 1})
+                         {'id': 1, 'width': 1, 'height': 1, 'x': 1, 'y': 1})
 
     def test_Update(self):
+        """
+        It tests updating the Rectangle class
+        """
         r1 = Rectangle(1, 1, 1, 1, 1)
         r1.update(89)
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 1/1 - 1/1")
+
+        r1.update(89, 2)
+        self.assertEqual(r1.__str__(), "[Rectangle] (89) 1/1 - 2/1")
+
+        r1.update(89, 2, 3)
+        self.assertEqual(r1.__str__(), "[Rectangle] (89) 1/1 - 2/3")
+
+    def test_Create(self):
+        r1 = Rectangle.create(**{ 'id': 89 })
+        self.assertEqual(r1.id, 89)
+
 
 if __name__ == '__main__':
     unittest.main()
