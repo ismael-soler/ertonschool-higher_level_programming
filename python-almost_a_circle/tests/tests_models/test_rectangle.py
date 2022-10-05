@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
@@ -129,8 +130,23 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 1/1 - 2/3")
 
     def test_Create(self):
+        """
+        `test_Create` creates a rectangle with an id of 89 and then checks that the id of the rectangle is
+        89
+        """
         r1 = Rectangle.create(**{ 'id': 89 })
         self.assertEqual(r1.id, 89)
+
+    def test_SaveToFile(self):
+        tempOutput = StringIO()
+        sys.stdout = tempOutput
+
+        Rectangle.save_to_file(None)
+        if os.path.exists('Rectangle.json'):
+            with open('Rectangle.json', 'r') as file:
+                print(file.read())
+            self.assertEqual(tempOutput.getvalue(), "[]\n")
+
 
 
 if __name__ == '__main__':

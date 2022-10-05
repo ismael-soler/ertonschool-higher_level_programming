@@ -21,7 +21,8 @@ class BaseTest(unittest.TestCase):
 
     def test_JsonToString(self):
         """
-        It tests the to_json_string function of the Base class.
+        It tests the
+        to_json_string function of the Base class.
         """
         aux = Base.to_json_string(None)
         self.assertEqual(aux, '[]')
