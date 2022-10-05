@@ -144,6 +144,16 @@ class RectangleTest(unittest.TestCase):
         self.r1 = Rectangle(3, 3)
         self.assertEqual(Rectangle.load_from_file(), [])
 
+    def test_16_5(self):
+        ''' More tests for save_to_file method '''
+        Rectangle.save_to_file(None)
+        if os.path.exists('Rectangle.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Rectangle.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, "[]\n")
 
 if __name__ == '__main__':
     unittest.main()
