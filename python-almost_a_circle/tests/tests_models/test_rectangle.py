@@ -3,6 +3,7 @@
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
+import sys
 from io import StringIO
 
 
@@ -82,8 +83,26 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(r1.__str__(), "[Rectangle] (1) 0/0 - 1/2")
 
     def test_Display(self):
-        r1 = Rectangle(2, 1, 0, 0)
-        self.assertEqual(r1.display(), None)
+        r = Rectangle(2, 2)
+        string = StringIO()
+        sys.stdout = string
+        r.display()
+        output = string.getvalue()
+        self.assertEqual(output, "##\n##\n")
+
+        r = Rectangle(2, 2, 1)
+        string = StringIO()
+        sys.stdout = string
+        r.display()
+        output = string.getvalue()
+        self.assertEqual(output, " ##\n ##\n")
+
+        r = Rectangle(2, 2, 1, 1)
+        string = StringIO()
+        sys.stdout = string
+        r.display()
+        output = string.getvalue()
+        self.assertEqual(output, "\n ##\n ##\n")
 
 
 if __name__ == '__main__':
