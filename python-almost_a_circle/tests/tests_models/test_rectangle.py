@@ -8,15 +8,33 @@ class RectangleTest(unittest.TestCase):
 
     def test_Rectangle(self):
         """
-        Test that the id, width, height, x, and y attributes are set correctly.
+        Test that the Rectangle class is created correctly.
         """
         r1 = Rectangle(1, 2)
-        self.assertEqual(r1.id, 1)
         self.assertEqual(r1.width, 1)
         self.assertEqual(r1.height, 2)
-        self.assertEqual(r1.x, 0)
-        self.assertEqual(r1.y, 0)
 
+        r1 = Rectangle(1, 2, 3)
+        self.assertEqual(r1.width, 1)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.x, 3)
+
+        r1 = Rectangle(1, 2, 3, 4)
+        self.assertEqual(r1.width, 1)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 4)
+
+    def test_IntValue(self):
+
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
 
 if __name__ == '__main__':
     unittest.main()
