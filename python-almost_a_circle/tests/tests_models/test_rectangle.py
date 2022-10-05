@@ -63,7 +63,20 @@ class RectangleTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(1, 2, 3, -4)
 
+    def test_Area(self):
+        """
+        Test that the area of a rectangle.
+        """
+        auxRectangle = Rectangle(1, 2)
+        self.assertEqual(auxRectangle.area(), 2)
 
+    def __str__(self):
+        """
+        It tests that the __str__ method of the Rectangle
+        class returns the correct string.
+        """
+        auxRectangle = Rectangle(1, 2)
+        self.assertEqual(auxRectangle.__str__(), '[Rectangle] (1) 0/0 - 1/2')
 
 if __name__ == '__main__':
     unittest.main()
