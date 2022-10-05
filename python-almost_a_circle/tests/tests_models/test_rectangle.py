@@ -1,10 +1,10 @@
-#!/usr/bin/python3
+##!/usr/bin/python3
 
-import unittest
-from models.rectangle import Rectangle
+#import unittest
+#from models.rectangle import Rectangle
 
-class RectangleTest(unittest.TestCase):
+#class RectangleTest(unittest.TestCase):
 
-    def test_Rectangle(self):
-        r1 = Rectangle(1, 2)
-        self.assertEqual(r1.id, 1)
+#    def test_Rectangle(self):
+#        r1 = Rectangle(1, 2)
+#        self.assertEqual(r1.id, 1)
