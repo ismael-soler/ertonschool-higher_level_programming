@@ -142,7 +142,7 @@ class RectangleTest(unittest.TestCase):
         It checks if the save_to_file function works properly.
         """
         self.r1 = Rectangle(3, 3)
-        self.assertEqual(self.r1.save_to_file(None), '[]')
+        self.assertEqual(self.r1.save_to_file(None), "[]")
         self.assertEqual(Rectangle.load_from_file(), [])
 
 
