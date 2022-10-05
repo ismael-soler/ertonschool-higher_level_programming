@@ -134,19 +134,22 @@ class RectangleTest(unittest.TestCase):
         `test_Create` creates a rectangle with an id of 89 and then checks that the id of the rectangle is
         89
         """
-        r1 = Rectangle.create(**{ 'id': 89 })
+        r1 = Rectangle.create(**{'id': 89})
         self.assertEqual(r1.id, 89)
 
     def test_SaveToFile(self):
-        tempOutput = StringIO()
-        sys.stdout = tempOutput
-
+        """
+        It tests that the
+        save_to_file function works properly when given a list of Rectangle
+        instances.
+        """
         Rectangle.save_to_file(None)
         if os.path.exists('Rectangle.json'):
+            tempOutput = StringIO()
+            sys.stdout = tempOutput
             with open('Rectangle.json', 'r') as file:
                 print(file.read())
             self.assertEqual(tempOutput.getvalue(), "[]\n")
-
 
 
 if __name__ == '__main__':
