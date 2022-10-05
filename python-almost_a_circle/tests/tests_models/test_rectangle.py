@@ -133,15 +133,6 @@ class RectangleTest(unittest.TestCase):
         r1.update(89, 2, 3)
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 1/1 - 2/3")
 
-    def test_savetofilerec(self):
-        """
-        It tests the save_to_file method of the Rectangle class.
-        """
-        self.set_zero()
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json") as fp:
-            self.assertEqual('[]', fp.read())
-
     def test_Create(self):
         """
         `test_Create` creates a rectangle with an id of 89 and then checks that the id of the rectangle is
@@ -149,6 +140,25 @@ class RectangleTest(unittest.TestCase):
         """
         r1 = Rectangle.create(**{'id': 89})
         self.assertEqual(r1.id, 89)
+
+    def test_LoadToFile(self):
+        """
+        It checks if the save_to_file function works properly.
+        """
+        self.set_zero()
+        self.r1 = Rectangle(3, 3)
+        self.assertEqual(Rectangle.load_from_file(), [])
+
+
+    def test_savetofilerec(self):
+        self.set_zero()
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json") as fp:
+            self.assertEqual('[]', fp.read())
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        with open("Rectangle.json") as fp3:
+            self.assertEqual(fp3.read(), '[{"id": 1, "width": 1, "height": \
+2, "x": 0, "y": 0}]')
 
 
 if __name__ == '__main__':
