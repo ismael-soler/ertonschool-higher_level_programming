@@ -108,11 +108,16 @@ class RectangleTest(unittest.TestCase):
 
     def test_ToDictionary(self):
         """
-        The function `to_dictionary` returns a dictionary representation of a Rectangle
+        tests the class method to_dictionary
         """
         r1 = Rectangle(1, 1, 1, 1, 1)
         self.assertEqual(r1.to_dictionary(),
                         {'id': 1, 'width': 1, 'height': 1, 'x': 1, 'y': 1})
+
+    def test_Update(self):
+        r1 = Rectangle(1, 1, 1, 1, 1)
+        r1.update(89)
+        self.assertEqual(r1.__str__(), "[Rectangle] (89) 1/1 - 1/1")
 
 if __name__ == '__main__':
     unittest.main()
