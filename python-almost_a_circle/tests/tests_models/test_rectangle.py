@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from curses.textpad import rectangle
 import unittest
 from models.rectangle import Rectangle
 
@@ -25,8 +26,17 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(r1.x, 3)
         self.assertEqual(r1.y, 4)
 
-    def test_IntValue(self):
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(r1.width, 1)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 4)
+        self.assertEqual(r1.id, 5)
 
+    def test_IntValue(self):
+        """
+        If the input is not an integer, raise a TypeError.
+        """
         with self.assertRaises(TypeError):
             Rectangle("1", 2)
         with self.assertRaises(TypeError):
@@ -35,6 +45,25 @@ class RectangleTest(unittest.TestCase):
             Rectangle(1, 2, "3")
         with self.assertRaises(TypeError):
             Rectangle(1, 2, 3, "4")
+
+    def test_PositiveValues(self):
+        """
+        If the width or height is less than or equal to zero, raise a ValueError.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(-1, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2)
+        with self.assertRaises(ValueError):
+            Rectangle(0, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 0)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, -3)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, 3, -4)
+
+
 
 if __name__ == '__main__':
     unittest.main()
