@@ -48,7 +48,8 @@ class RectangleTest(unittest.TestCase):
 
     def test_PositiveValues(self):
         """
-        If the width or height is less than or equal to zero, raise a ValueError.
+        If the width or height is less than or equal to zero,
+        raise a ValueError.
         """
         with self.assertRaises(ValueError):
             Rectangle(-1, 2)
@@ -75,8 +76,9 @@ class RectangleTest(unittest.TestCase):
         It tests that the __str__ method of the Rectangle
         class returns the correct string.
         """
-        auxRectangle = Rectangle(1, 2)
-        self.assertEqual(auxRectangle.__str__(), '[Rectangle] (1) 0/0 - 1/2')
+        auxRectangle = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(auxRectangle.__str__(), '[Rectangle] (5) 0/0 - 1/2')
+
 
 if __name__ == '__main__':
     unittest.main()
