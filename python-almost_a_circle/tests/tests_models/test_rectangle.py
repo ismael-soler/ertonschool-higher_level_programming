@@ -2,6 +2,7 @@
 
 import unittest
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class RectangleTest(unittest.TestCase):
@@ -69,6 +70,14 @@ class RectangleTest(unittest.TestCase):
         """
         auxRectangle = Rectangle(1, 2)
         self.assertEqual(auxRectangle.area(), 2)
+
+    def test_str(self):
+        """
+        It tests that the __str__ method of the Rectangle class returns the correct string.
+        """
+        Base._Base__nb_objects = 0
+        r1 = Rectangle(1, 2)
+        self.assertEqual(r1.__str__(), "[Rectangle] (1) 0/0 - 1/2")
 
 
 if __name__ == '__main__':
