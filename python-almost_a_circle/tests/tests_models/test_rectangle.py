@@ -151,6 +151,15 @@ class RectangleTest(unittest.TestCase):
                 print(file.read())
             self.assertEqual(tempOutput.getvalue(), "[]\n")
 
+        Rectangle.save_to_file([])
+        if os.path.exists('Rectangle.json'):
+            string = StringIO()
+            sys.stdout = string
+            with open('Rectangle.json', 'r') as f:
+                print(f.read())
+            output = string.getvalue()
+            self.assertEqual(output, "[]\n")
+
 
 if __name__ == '__main__':
     unittest.main()
