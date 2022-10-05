@@ -83,26 +83,25 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(r1.__str__(), "[Rectangle] (1) 0/0 - 1/2")
 
     def test_Display(self):
-        r = Rectangle(2, 2)
-        string = StringIO()
-        sys.stdout = string
-        r.display()
-        output = string.getvalue()
-        self.assertEqual(output, "##\n##\n")
+        # Creating a temporary output.
+        temp_out = StringIO()
+        # Redirecting the output to a temporary output.
+        sys.stdout = temp_out
+        r1 = Rectangle(2, 2)
+        r1.display()
+        self.assertEqual(temp_out.getvalue(), "##\n##\n")
 
-        r = Rectangle(2, 2, 1)
-        string = StringIO()
-        sys.stdout = string
-        r.display()
-        output = string.getvalue()
-        self.assertEqual(output, " ##\n ##\n")
+        temp_out2 = StringIO()
+        sys.stdout = temp_out2
+        r2 = Rectangle(2, 2, 1)
+        r2.display()
+        self.assertEqual(temp_out2.getvalue(), " ##\n ##\n")
 
-        r = Rectangle(2, 2, 1, 1)
-        string = StringIO()
-        sys.stdout = string
-        r.display()
-        output = string.getvalue()
-        self.assertEqual(output, "\n ##\n ##\n")
+        temp_out3 = StringIO()
+        sys.stdout = temp_out3
+        r3 = Rectangle(2, 2, 1, 1)
+        r3.display()
+        self.assertEqual(temp_out3.getvalue(), "\n ##\n ##\n")
 
 
 if __name__ == '__main__':
