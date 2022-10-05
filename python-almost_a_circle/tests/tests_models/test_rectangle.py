@@ -10,6 +10,10 @@ from io import StringIO
 
 class RectangleTest(unittest.TestCase):
 
+    def set_zero(self):
+        """ Sets to 0 the instance counter of base """
+        Base._Base__nb_objects = 0
+
     def test_Rectangle(self):
         """
         Test that the Rectangle class is created correctly.
@@ -129,6 +133,15 @@ class RectangleTest(unittest.TestCase):
         r1.update(89, 2, 3)
         self.assertEqual(r1.__str__(), "[Rectangle] (89) 1/1 - 2/3")
 
+    def test_savetofilerec(self):
+        """
+        It tests the save_to_file method of the Rectangle class.
+        """
+        self.set_zero()
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json") as fp:
+            self.assertEqual('[]', fp.read())
+
     def test_Create(self):
         """
         `test_Create` creates a rectangle with an id of 89 and then checks that the id of the rectangle is
@@ -137,23 +150,6 @@ class RectangleTest(unittest.TestCase):
         r1 = Rectangle.create(**{'id': 89})
         self.assertEqual(r1.id, 89)
 
-    def test_SaveToFile(self):
-        """
-        It checks if the save_to_file function works properly.
-        """
-        self.r1 = Rectangle(3, 3)
-        self.assertEqual(Rectangle.load_from_file(), [])
-
-    def test_16_5(self):
-        ''' More tests for save_to_file method '''
-        Rectangle.save_to_file(None)
-        if os.path.exists('Rectangle.json'):
-            string = StringIO()
-            sys.stdout = string
-            with open('Rectangle.json', 'r') as f:
-                print(f.read())
-            output = string.getvalue()
-            self.assertEqual(output, "[]\n")
 
 if __name__ == '__main__':
     unittest.main()
