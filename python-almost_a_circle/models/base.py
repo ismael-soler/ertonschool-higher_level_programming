@@ -71,6 +71,5 @@ class Base:
         if exists(filename):
             with open(filename, "r", encoding='utf-8') as file:
                 for currentObject in cls.from_json_string(file.read()):
-                    print ("------ {} ------".format(currentObject))
                     listOfInstances.append(cls.create(**currentObject))
         return listOfInstances
