@@ -83,6 +83,9 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(r1.__str__(), "[Rectangle] (1) 0/0 - 1/2")
 
     def test_Display(self):
+        """
+        It tests the display function of the Rectangle class.
+        """
         # Creating a temporary output.
         temp_out = StringIO()
         # Redirecting the output to a temporary output.
@@ -103,6 +106,13 @@ class RectangleTest(unittest.TestCase):
         r3.display()
         self.assertEqual(temp_out3.getvalue(), "\n ##\n ##\n")
 
+    def test_ToDictionary(self):
+        """
+        The function `to_dictionary` returns a dictionary representation of a Rectangle
+        """
+        r1 = Rectangle(1, 1, 1, 1, 1)
+        self.assertEqual(r1.to_dictionary(),
+                        {'id': 1, 'width': 1, 'height': 1, 'x': 1, 'y': 1})
 
 if __name__ == '__main__':
     unittest.main()
