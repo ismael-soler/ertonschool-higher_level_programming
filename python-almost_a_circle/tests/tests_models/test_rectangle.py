@@ -139,26 +139,11 @@ class RectangleTest(unittest.TestCase):
 
     def test_SaveToFile(self):
         """
-        It tests that the
-        save_to_file function works properly when given a list of Rectangle
-        instances.
+        It checks if the save_to_file function works properly.
         """
-        Rectangle.save_to_file(None)
-        if os.path.exists('Rectangle.json'):
-            tempOutput = StringIO()
-            sys.stdout = tempOutput
-            with open('Rectangle.json', 'r') as file:
-                print(file.read())
-            self.assertEqual(tempOutput.getvalue(), "[]\n")
-
-        Rectangle.save_to_file([])
-        if os.path.exists('Rectangle.json'):
-            string = StringIO()
-            sys.stdout = string
-            with open('Rectangle.json', 'r') as f:
-                print(f.read())
-            output = string.getvalue()
-            self.assertEqual(output, "[]\n")
+        self.r1 = Rectangle(3, 3)
+        self.assertEqual(self.r1.save_to_file(None), None)
+        self.assertEqual(Rectangle.load_from_file(), [])
 
 
 if __name__ == '__main__':
