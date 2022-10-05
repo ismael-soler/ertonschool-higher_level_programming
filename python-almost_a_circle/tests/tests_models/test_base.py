@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Unittest for base
-"""
+""" It tests the Base class """
 
 import unittest
 from models.base import Base
