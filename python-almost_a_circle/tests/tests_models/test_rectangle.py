@@ -141,24 +141,17 @@ class RectangleTest(unittest.TestCase):
         r1 = Rectangle.create(**{'id': 89})
         self.assertEqual(r1.id, 89)
 
-    def test_LoadToFile(self):
-        """
-        It checks if the save_to_file function works properly.
-        """
-        self.set_zero()
-        self.r1 = Rectangle(3, 3)
+    def test_NoList(self):
+        r2 = Rectangle.save_to_file([])
+        with open("Rectangle.json") as tempFile:
+            self.assertEqual('[]', tempFile.read())
+
+    def test_List(self):
         self.assertEqual(Rectangle.load_from_file(), [])
-
-
-    def test_savetofilerec(self):
-        self.set_zero()
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json") as fp:
-            self.assertEqual('[]', fp.read())
-        Rectangle.save_to_file([Rectangle(1, 2)])
-        with open("Rectangle.json") as fp3:
-            self.assertEqual(fp3.read(), '[{"id": 1, "width": 1, "height": \
-2, "x": 0, "y": 0}]')
+        Rectangle.save_to_file([Rectangle(1, 2, 0, 0, 66)])
+        with open("Rectangle.json") as temporary:
+            self.assertEqual(
+                '[{"id": 66, "width": 1, "height": 2, "x": 0, "y": 0}]', temporary.read())
 
 
 if __name__ == '__main__':
