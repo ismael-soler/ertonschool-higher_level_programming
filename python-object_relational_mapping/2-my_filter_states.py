@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" takes in an argument and displays all values in the states table of hbtn_0e_0_usa where name matches the argument """
+""" takes in an argument and displays all values in the
+states table of hbtn_0e_0_usa where name matches the argument """
 if __name__ == '__main__':
     import sys
     import MySQLdb
@@ -21,7 +22,7 @@ if __name__ == '__main__':
     cur.execute("""SELECT *
                 FROM states
                 WHERE name LIKE BINARY '{}'
-                ORDER BY states.id ASC""".format(mysql_arg))
+                ORDER BY id ASC""".format(mysql_arg))
     stuff = cur.fetchall()
     for i in stuff:
         print(i)
