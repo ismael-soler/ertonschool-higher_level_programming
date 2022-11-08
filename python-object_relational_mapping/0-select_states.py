@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" This module selects all the states from a given db """
+""" select all the states from a given db """
 if __name__ == '__main__':
     import sys
     import MySQLdb
@@ -22,5 +22,4 @@ if __name__ == '__main__':
     for i in stuff:
         print(i)
 
-    cur.close()
     db.close()
