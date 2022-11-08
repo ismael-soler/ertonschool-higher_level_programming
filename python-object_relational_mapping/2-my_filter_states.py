@@ -21,7 +21,7 @@ if __name__ == '__main__':
     cur.execute("""SELECT *
                 FROM states
                 WHERE name LIKE BINARY '{}'
-                ORDER BY id ASC""".format(mysql_arg))
+                ORDER BY states.id ASC""".format(mysql_arg))
     stuff = cur.fetchall()
     for i in stuff:
         print(i)
