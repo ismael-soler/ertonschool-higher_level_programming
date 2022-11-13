@@ -1,29 +1,19 @@
 #!/usr/bin/python3
-""" script that lists all State objects from the database hbtn_0e_6_usa """
-if __name__ == '__main__':
-    import sys
-    from model_state import Base, State
-    from sqlalchemy import create_engine
-    from sqlalchemy.orm import Session
-    from sqlalchemy.orm import sessionmaker
-    from sqlalchemy import select
+""" lists all states """
 
-    mysql_username = sys.argv[1]
-    mysql_password = sys.argv[2]
-    mysql_dbname = sys.argv[3]
+import sqlalchemy
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sys import argv
+from model_state import Base, State
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        mysql_username, mysql_password, mysql_dbname), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-
-    Session = sessionmaker(bind=engine)
+if __name__ == "__main__":
+    eng = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1],
+                                                                    argv[2],
+                                                                    argv[3]))
+    Base.metadata.create_all(eng)
+    Session = sessionmaker(bind=eng)
     session = Session()
-
-    result = session.query(State).first()
-
-    if result is not None:
-        print(f"{result.id}: {result.name}")
-    else:
-        print("Nothing")
-
+    for state in session.query(State).order_by(State.id):
+        print(f"{state.id}: {state.name}")
     session.close()
