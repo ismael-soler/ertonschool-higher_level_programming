@@ -19,11 +19,7 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).first()
+    table = session.query(State).all()
 
-    if result is not None:
-        print(f"{result.id}: {result.name}")
-    else:
-        print("Nothing")
-
-    session.close()
+    for row in table:
+        print(f"{row.id}: {row.name}")
