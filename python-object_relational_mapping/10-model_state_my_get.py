@@ -1,28 +1,29 @@
 #!/usr/bin/python3
-""" script that lists first State objects from the database hbtn_0e_6_usa """
+"""MODULE NAME"""
 
-import sys
-from model_state import Base, State
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+from sys import argv
+from model_state import Base, State
+
+
+Base = declarative_base()
+
 
 if __name__ == '__main__':
 
-    mysql_username = sys.argv[1]
-    mysql_password = sys.argv[2]
-    mysql_dbname = sys.argv[3]
-    mysql_arg = sys.argv[4]
-
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        mysql_username, mysql_password, mysql_dbname), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+    engine = create_engine(
+        f'mysql+mysqldb://{argv[1]}:{argv[2]}@localhost/{argv[3]}')
+    Base.metadata.create_all(bind=engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
     result = session.query(State).filter(
-        State.name.like(mysql_arg)).first()
+        State.name.like(argv[4])).first()
     if result is not None:
-        print(f"{result.id}: {result.name}")
+        print(f'{result.id}')
     else:
-        print("Not Found")
+        print('Not found')
     session.close()
