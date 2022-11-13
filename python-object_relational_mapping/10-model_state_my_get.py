@@ -19,8 +19,10 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    filteredTable = session.query(State).filter(
-        State.name.like('%a%')).order_by(State.id)
-    for row in filteredTable:
-        print(f"{row.id}: {row.name}")
+    result = session.query(State).filter(
+        State.name.like(mysql_arg)).first()
+    if result is not None:
+        print(f"{result.id}: {result.name}")
+    else:
+        print("Not Found")
     session.close()
