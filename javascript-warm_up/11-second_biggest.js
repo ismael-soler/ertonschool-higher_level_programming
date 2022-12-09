@@ -2,7 +2,7 @@
 const process = require('process');
 const args = process.argv;
 
-if (!args || args.length === 3) {
+if (args.length < 3) {
   console.log('0');
 } else {
   const newList = [];
