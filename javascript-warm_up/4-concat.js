@@ -1,7 +1,5 @@
 #!/usr/bin/node
 const process = require('process');
-const args = process.argv;
-
-if (args.length === 4) {
-  console.log(args[2], 'is', args[3]);
-}
+const var1 = process.argv[2];
+const var2 = process.argv[3];
+console.log(var1 + ' is ' + var2);
