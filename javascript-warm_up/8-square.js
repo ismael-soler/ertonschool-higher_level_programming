@@ -15,3 +15,5 @@ if (isNaN(area)) {
   }
   console.log();
 }
+
+// Alternative way using console.log('X'.repeat(area))
