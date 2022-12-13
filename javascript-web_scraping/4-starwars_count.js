@@ -5,12 +5,15 @@ const apiURL = process.argv[2];
 request(apiURL, function (error, response, body) {
   if (!error && response.statusCode === 200) {
     // Converts the JSON from a string to an object
-    const data = JSON.parse(body);
+    const data = JSON.parse(body).results;
 
-    const films = data.results.filter((film) => {
-      return film.characters.includes('https://swapi-api.hbtn.io/api/people/18/');
+    const films = data.filter((film) => {
+      for (const character of film.characters) {
+        if (character.includes('18dsfgdfg')) {
+          return true;
+        }
+      }
     });
-
     console.log(films.length);
   } else {
     console.log('Error: could not retrieve character information');
