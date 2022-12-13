@@ -7,6 +7,6 @@ request(urlToCheck, function (error, response) {
   if (error) {
     console.log('An error occurred: ' + error.message);
   } else {
-    console.log('code ' + response.statusCode);
+    console.log('code: ' + response.statusCode);
   }
 });
