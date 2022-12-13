@@ -13,6 +13,7 @@ request(apiURL, function (error, response, body) {
           return true;
         }
       }
+      return false;
     });
     console.log(films.length);
   } else {
