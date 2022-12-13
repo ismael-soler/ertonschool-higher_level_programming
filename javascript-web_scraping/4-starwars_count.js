@@ -9,7 +9,7 @@ request(apiURL, function (error, response, body) {
 
     const films = data.filter((film) => {
       for (const character of film.characters) {
-        if (character.includes('18dsfgdfg')) {
+        if (character.includes('18')) {
           return true;
         }
       }
